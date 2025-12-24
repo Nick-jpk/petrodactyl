@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    image: wa-dashboard-backend:local
+    ports:
+      - "4000:4000"
+    environment:
+      - ADMIN_PASSWORD=changeme
+      - ADMIN_TOKEN=admintoken
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    image: wa-dashboard-frontend:local
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND=http://localhost:4000
+    restart: unless-stopped
+
+  bot:
+    build: ./bot
+    image: wa-bot:local
+    # This service is optional — instances are created on-demand by the backend
+    restart: "no"
