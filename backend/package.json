@@ -1,0 +1,16 @@
+{
+  "name": "wa-dashboard-backend",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dockerode": "^3.3.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1"
+  }
+}
